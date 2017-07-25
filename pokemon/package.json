@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
     "bulma": "^0.4.4",
     "pokedex-promise-v2": "^3.0.3",
     "react": "^15.6.1",

@@ -11,6 +11,7 @@ import Bulma from 'bulma/css/bulma.css'
 import Home from './components/Home'
 import About from './components/About'
 import Pokemon from './components/Pokemon'
+import Yn from './components/Yn'
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/pokemon">Pokemon</Link></li>
+              <li><Link to="/yesorno">Yes or No</Link></li>
             </ul>
 
             <hr/>
@@ -35,6 +37,7 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About}/>
             <Route path="/pokemon" component={Pokemon}/>
+            <Route path="/yesorno" component={Yn}/>
           </div>
         </Router>
       </div>
