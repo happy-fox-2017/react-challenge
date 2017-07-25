@@ -4,7 +4,6 @@ import axios from 'axios';
 import '../App.css';
 
 class App extends Component {
-  
   constructor () {
     super();
     this.state = {
@@ -16,7 +15,7 @@ class App extends Component {
     axios.get("https://swapi.co/api/people")
     .then(data => {
       this.setState({data_api: data.data.results})
-      console.log(this.state.data_api[0].name)
+      console.log(data);
     }).catch(err => {
       console.log(err)
     })
@@ -25,26 +24,27 @@ class App extends Component {
   New_Person () {
     let data = this.state.data_api
     return (
-      <div> 
-        <ul>
+      <div>
+        <tr>
+          <th> Name </th>
+          <th> Gender </th>
+          <th> Age </th>
+        </tr>
           { data.map(results => {
               return (
-                <div>
-                  <li> Name : {results.name} </li>
-                  <li> Person : {results.gender} </li>
-                  <li> Birthyear : {results.birth_year} </li>
-                </div>
+                <tr>
+                  <td> {results.name} </td> 
+                  <td> {results.gender} </td> 
+                  <td> {results.birth_year} </td>
+                </tr>
               )
             })
           }
-        </ul>
       </div>
     )
   }
   
-  
   render() {
-  
     return (
       <div className="App">
         <div className="App-header">
@@ -52,7 +52,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div>
-          { (this.state.data_api==='') ? "Tunggu" : this.New_Person()}
+          { (this.state.data_api==='') ? "Waiting" : this.New_Person()}
         </div>
       </div>
     );
