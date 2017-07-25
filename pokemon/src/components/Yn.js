@@ -34,7 +34,7 @@ class Yn extends React.Component {
       }
     }
     return (
-      <div class="card" style={style.card}>
+      <div className="card" style={style.card}>
       <h1>{this.state.question.answer}</h1>
         <div className="card-image">
           <figure className="image is-4by3">
