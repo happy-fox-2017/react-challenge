@@ -13,7 +13,7 @@ let SideBar = function() {
         </p>
         <ul className="menu-list">
           <li><Link to="/star-wars">STAR WARS</Link></li>
-          <li><Link to="/recipe-puppy">RECIPE PUPPY</Link></li>
+            <li><Link to="/random-cat">RANDOM CAT</Link></li>
         </ul>
         <p className="menu-list">
           <Link to="/">HOME</Link>

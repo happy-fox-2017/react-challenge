@@ -22,15 +22,20 @@
 }
 
 .App-logo2 {
-  animation: App-logo-spin2 infinite 0.2s linear;
-  height: 80px;
+  animation: App-logo-spin2 infinite 1s linear;
+  height: 300px;
 }
 
 @keyframes App-logo-spin2 {
   0% {
     transform: rotate(0deg);
+    height: 300px;
+  }
+  50% {
+    height: 300px;
   }
   100% {
     transform: rotate(360deg);
+    height: 300px;
   }
 }

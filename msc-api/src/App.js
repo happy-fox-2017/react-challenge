@@ -7,7 +7,7 @@ import './App.css';
 import SideBar from './components/SideBar'
 import Home from './components/Home'
 import StarWars from './components/StarWars'
-import RecipePuppy from './components/RecipePuppy'
+import RandomCat from './components/RandomCat'
 
 class App extends Component {
   render() {
@@ -33,7 +33,7 @@ class App extends Component {
             <div className="column box" style={styleDiv}>
               <Route exact path="/" component={Home}/>
               <Route path="/star-wars" component={StarWars}/>
-              <Route path="/recipe-puppy" component={RecipePuppy}/>
+              <Route path="/random-cat" component={RandomCat}/>
             </div>
           </div>
         </div>
