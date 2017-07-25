@@ -19,6 +19,19 @@ class App extends Component {
     })
   }
 
+  hasilApi() {
+    return this.state.api.photos.map(mars => {
+      return (
+        <div key={mars.id}>
+          <a target="_blank" href={mars.img_src}>
+            <img src={mars.img_src} alt="Fjords" width="1080" height="720" />
+          </a>
+        </div>
+      )
+    })
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -26,18 +39,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Mars Photo Exhibition </h2>
         </div>
-        <div>
-          {
-            this.state.api.photos.map( mars => {
-              <div class="gallery">
-              <a target="_blank" href="fjords.jpg">
-              <img src="fjords.jpg" alt="Fjords" width="300" height="200" />
-              </a>
-              <div class="desc">Add a description of the image here</div>
-              </div>
-            })
-          }
-        </div>
+        {
+         this.state.api.photos ? this.hasilApi() : <div className="loader"></div>
+        }
+
       </div>
     );
   }
