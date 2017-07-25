@@ -9,53 +9,76 @@ class Pokemon extends React.Component {
     }
   }
 
-  getListPokemon () {
+  // getListPokemon () {
+  //   var P = new EPokemon()
+  //   var interval = {
+  //    limit: 99,
+  //    offset: 100
+  //   }
+  //   P.getPokemonsList(interval)
+  //    .then(function(response) {
+  //      this.setState({
+  //        pokemonData: response.results
+  //      })
+  //      console.log(response);
+  //    })
+  //    .catch(function(error) {
+  //     console.log('There was an ERROR: ', error);
+  //    });
+  // }
+
+  // ComponentDidMount () {
+  //   this.getListPokemon()
+  // }
+
+  componentWillMount () {
+    console.log("somthing bout you =====");
+    console.log(this.state.pokemonData);
+    var self = this
     var P = new EPokemon()
     var interval = {
-     limit: 0,
+     limit: 99,
      offset: 100
     }
     P.getPokemonsList(interval)
      .then(function(response) {
-      //  this.setState({ this.state.pokemonData: response.results })
-       console.log(response);
+       self.setState({
+         pokemonData: response.results
+       })
+      // this.state.pokemonData = response.results
+      //  console.log(response.results);
      })
      .catch(function(error) {
       console.log('There was an ERROR: ', error);
      });
   }
 
-  ComponentWillMount () {
-    this.getListPokemon()
-  }
-
-  // var data = this.state.pokemonData
-  // console.log('hi data : ',data);
   GetData () {
+    let data = this.state.pokemonData
+    console.log('mydata',data);
+    const style = {
+      card: {
+        marginLeft: '100px',
+        marginRight: '100px'
+      }
+    }
     return (
       <div>
-        <div class="card">
-          <div class="card-content">
-            <p class="title">
+        {this.state.pokemonData.map((x, index) => {
+          return (
+            <div className="card" style={style.card}>
+              <div className="card-content" key={index}>
+                <p className="title">
+                  Pokemon Name: {x.name}
+                </p>
+                <p className="subtitle">
+                  Pokemon Url: {x.url}
+                </p>
+              </div>
+            </div>
+          )
+        })}
 
-            </p>
-            <p class="subtitle">
-              Jeff Atwood
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span>
-                View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-              </span>
-            </p>
-            <p class="card-footer-item">
-              <span>
-                Share on <a href="#">Facebook</a>
-              </span>
-            </p>
-          </footer>
-        </div>
       </div>
     )
   }
@@ -65,7 +88,7 @@ class Pokemon extends React.Component {
     return (
       <div>
         <h1>LIST POKEMON</h1>
-
+        {this.state.pokemonData === '' ? "wait.." : this.GetData()}
       </div>
     )
   }
