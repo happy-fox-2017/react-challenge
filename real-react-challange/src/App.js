@@ -1,13 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import axios from 'axios'
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from 'react-router-dom'
+
+import './App.css';
+import logo from './logo.svg';
+import Mars from './components/Mars';
+import Search from './components/Search';
+import Home from './components/Home';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      api: {}
+      api: {},
+      query: ''
     }
   }
 
@@ -17,6 +28,11 @@ class App extends Component {
       this.setState({api: response.data})
       console.log(this.state.api);
     })
+  }
+
+
+  searchQuery(event) {
+    this.setState({query: event.target.value})
   }
 
   hasilApi() {
@@ -34,16 +50,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Mars Photo Exhibition </h2>
+      <Router>
+        <div>
+          <div className="App">
+            <div>
+              <input type="text" name="search" placeholder="Search.." onChange={(event) => this.searchQuery(event)} />
+              <Link to={"/search/"+this.state.query.split(' ').join('_')}><button>search</button></Link>
+            </div>
+            <div className="App-header">
+              <img src="http://vector.me/files/images/1/3/13605/nasa.png" alt="logo" width="100" height="75" />
+            </div>
+          </div>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/mars" component={Mars}/>
+          <Route path="/search/:query" component={Search}/>
         </div>
-        {
-         this.state.api.photos ? this.hasilApi() : <div className="loader"></div>
-        }
-
-      </div>
+      </Router>
     );
   }
 }
