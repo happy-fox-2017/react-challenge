@@ -27,6 +27,7 @@ class App extends React.Component {
     fetch(url)
       .then((res) => res.json() )
       .then((data) => {
+        console.log(data);
         this.setState({
           username: data.login,
           name: data.name,

@@ -13,8 +13,8 @@ export default class SearchProfile extends React.Component {
 
   _handleForm(e) {
    e.preventDefault();
-    let username = this.refs.username.getDOMNode().value
+    let username = this.refs.username.value
     this.props.fetchProfile(username);
-    this.refs.username.getDOMNode().value = '';
+    this.refs.username.value = '';
   }
 }

@@ -19,7 +19,7 @@ export default class Profile extends React.Component {
         <div className="github--profile__info">
           <a href={data.homeUrl} target="_blank" title={data.name || data.username}><img src={data.avatar} alt={data.username}/></a>
           <h2><a href={data.homeUrl} title={data.username} target="_blank">{data.name || data.username}</a></h2>
-          <h3>{data.location || 'I Live In My Mind'}</h3>
+          <h3>{data.location || "Time is illussion"}</h3>
         </div>
         <div className="github--profile__state">
           <ul>
