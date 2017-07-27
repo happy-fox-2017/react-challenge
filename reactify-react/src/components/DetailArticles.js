@@ -1,10 +1,14 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Media } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+
 
 class DetailArticles extends React.Component {
   render () {
     return (
+         <div>
          <h1>Ini Detail Articles</h1>
+         </div>
     )
   }
 }
